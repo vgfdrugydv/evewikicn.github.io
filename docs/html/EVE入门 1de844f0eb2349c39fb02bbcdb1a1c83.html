@@ -1,0 +1,627 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>EVE入门</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1de844f0-eb23-49c3-9fb0-2bbcdb1a1c83" class="page sans"><header><h1 class="page-title">EVE入门</h1></header><div class="page-body"><p id="88561e0e-5fc9-479f-a2bf-a8d9b246df12" class="">欢迎来到EVE Online！你现在已经成为令人兴奋但又危险的新伊甸的新居民了。本教程将会带你度过你在EVE的最初几天。</p><p id="65244aa2-35f5-445b-9c61-d830a0f1d183" class="">若你想获得一篇更加全面的指南，详见</p><figure id="ef08fae3-e837-4eed-88a3-06f947e1b5d6" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/EVE%E5%AF%BC%E8%AE%BA%20ef08fae3e8374eed88a306f947e1b5d6.html">EVE导论</a></figure><h2 id="3cfbbba5-2ce3-41bd-8da1-24223107b0e3" class="">EVE Online简介</h2><p id="2449e73f-f46d-4bf2-99c4-624076bc8355" class="">EVE是一款不同于其他MMORPG类型的游戏。它不仅有独特的机制，也不遵照其他游戏的惯例。因此，熟悉游戏的某些核心方面可能是一个好主意，以便对预期的结果有更好的了解。</p><figure id="a7423072-1e55-4a70-8420-3e32e5198038" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E9%92%88%E5%AF%B9%E4%BC%A0%E7%BB%9FMMORPG%E8%80%81%E7%8E%A9%E5%AE%B6%E7%9A%84EVE%E6%8C%87%E5%8D%97%20a74230721e554a7084203e32e5198038.html">针对传统MMORPG老玩家的EVE指南</a></figure><p id="719a8a6d-141e-4b4e-93f2-1f5484f71ee9" class="">若想游玩EVE，第一步是创建一个账号，你的账号名不会在游戏里的任何地方公开，并且你最多可以在同一个账户内拥有三个人物。你还可以创建无限多的账号。</p><p id="1f2d3a07-4ac5-413f-8181-623f34886489" class="">如果你使用了你朋友提供给你的邀请链接，你将会获得100万免费技能点。某些玩家还会将邀请人的奖励一并提供给被邀请人以作为被邀请人的启动资金。就算你没有邀请链接，你仍然可以在直播主或up主那里获得公开邀请链接。另外由于邀请人也会收到奖励，所以自己邀请自己也是可能的。</p><p id="6f9832b0-1d54-4d1c-b8a4-8a8e45209356" class="">令人沮丧的是，有些时候账号会被盗，所以最好启用二步验证（Two-Factor Authentication）</p><h2 id="a98c3ad6-7421-430f-a228-763e62660f33" class="">人物创建</h2><h3 id="76c18668-5f65-471d-9620-44e86805035b" class="">种族</h3><p id="f2a11324-0629-4d28-99ac-ac6f9eaff7d7" class="">你在游戏中所需要做出的第一个选择是为你的角色选择一个种族。在游戏里一共有四个种族：艾玛、加达里、盖伦特和米玛塔尔。总的来说，种族选择完全基于你的审美观，因为每一个种族的初始技能大致相同，这意味着就算你选择了艾玛作为你的初始种族，你只要有相对应的技能就可以开其他种族的船。你在种族选择上将主要着重于各个种族的长相或者是角色扮演的需求上（如果你有）。如果你选择了某个种族，你将会获得相对应种族的特定技能，不论你是付费玩家（欧米伽克隆Omega Clone）还是白嫖玩家（阿尔法克隆Alpha Clone）。尽管如此，你还是可以交叉训练其他种族的技能。</p><h3 id="4288d36b-605e-4476-96e1-79c9ce055064" class="">血脉</h3><p id="9858c711-30fb-486b-830f-1fd499b7a1b0" class="">EVE中的血脉是一个角色的家庭血统，在人物创建的过程中，每一个人种均有三种不同的血脉。血脉决定你在离开玩家军团或初始军团后将会自动加入哪个军团。但是，每个NPC军团均无分别，所以在选择上纯凭个人喜好。</p><h3 id="26769e22-6ba0-46b2-a680-cad01bbf5256" class="">学校</h3><p id="9c5ae722-8349-47de-81a6-b34a09455cff" class="">选择的学校只会决定你出生于哪个新手星系和初始军团，所有新手星系和初始军团之间并无分别。初始军团将会提供一个新伊甸中属于学校的空间站列表，使你可以在这些空间站中永久安置你的医疗克隆体。这不会受到你所加入的军团或所处位置的影响。</p><h3 id="528d6413-1b0b-41a6-8e72-e3556bb5eb8b" class="">肖像和外观</h3><p id="752dc9d4-3fac-488a-90f3-4b13c98c8c9d" class="">下一步是设计你的角色外观并拍一张大头照。你的外观受到你所选择的种族和人种的影响，但是这些工具同样给你很大的灵活性。花一些时间来设计你的人物外观，但请你留意，在大多数时候，其他玩家只会注意到你的大头照。你可以在之后的时间随意更改自己的衣服或重拍大头照，但对你的人物进行面部改造需要消耗重塑凭证，而这凭证需要在新伊甸商城通过plex来兑换。</p><h3 id="ab61808f-7b77-4f53-82fe-f295c69db8af" class="">名字</h3><p id="22f8d078-ff70-4c19-a130-bdbdcd9ae3eb" class="">谨慎命名你的人物名称，因为你将不能再改变它。你的名字是你的身份的一部分，这将会决定你的团员对你的看法。在EVE里，多数军团在出勤时或平时闲聊时使用YY。出勤时，你有时需要用你的人物名称来代表你自己，其他舰队成员也会用你的人物名称来向你传达情报或命令。拥有一个简单易读的名称会使事情简单化。所以请谨慎取名，你的名字的前半部分通常在舰队战斗中会成为你的呼号。如果你取了一个很复杂的名字，别人通常不会把你看的太重要。</p><p id="03c35098-1d28-43d6-ae1e-b0e8713be0b7" class="">角色名是独一无二的，在你进行下一步之前，游戏会自动检查名称是否重复。</p><h2 id="014a9f15-d6ba-4102-b8d4-a4931fb927bf" class="">开始游戏</h2><h3 id="7bbc6798-0090-4c3c-b8d5-8732911d8504" class="">新手教程</h3><p id="729573ec-a9fd-47bf-8bdb-ea7307d49209" class="">当你以全新人物进入游戏时，你可以过一遍新手教程，一个手把手带你理解eve核心要素的故事线任务。除非你已经对EVE很熟悉了，否则我强烈建议你玩一遍新手教程，因为本游戏有许多其他游戏闻所未闻的特定机制，即使你已经玩过那些游戏。</p><p id="e54d4a68-8a2c-4b70-ad55-551623e89477" class="">在完成新手教程后，你应该去完成五大职业代理人任务。这些任务会拓展你在新手教程中所学的知识，并引领你认识EVE中主要的PVE活动。</p><p id="d581e566-c121-44e5-9d12-5f01692644cd" class="">不过，请留意这些职业代理人同样也会教授零星的PVP知识。最后，EVE是一个沙盒游戏，所以你没有必要沿着既定路线去发展，而是去走出你自己的路。</p><p id="f75e68ef-6846-4849-863c-462a98b5e152" class="">一共有五个职业代理人。每一个代理人提供相应领域5到10个子任务。分别是：</p><ul id="30b2be7a-3cc6-4b07-978d-bf97aeb9fa03" class="bulleted-list"><li>工业</li></ul><ul id="74751041-0118-485c-93a8-54e61f0341b8" class="bulleted-list"><li>商业</li></ul><ul id="db387905-94c0-458f-893d-91168ea2f3f9" class="bulleted-list"><li>探索</li></ul><ul id="0269befa-f046-4791-b9a9-b4ebe21076a5" class="bulleted-list"><li>军事</li></ul><ul id="46089f33-381b-4116-b300-e1df4e22f4de" class="bulleted-list"><li>高级军事</li></ul><p id="b56541c1-0a25-4326-99ad-5af9b87e6409" class="">如果你完成了新手任务，你现在应该在职业代理人所在的空间站；五个职业代理人必定在同一个空间站中。如果你跳过了新手任务，你可以依据如下操作获取最近的职业代理人位置。（每个种族有三组职业代理人，但是他们提供完全一样的任务）</p><ol id="c5ccc2de-d1c0-45c0-88f4-dcdfae694b2c" class="numbered-list" start="1"><li>打开游戏内帮助菜单（F12或点击位于侧边栏的“？”图标）</li></ol><ol id="9e5310a1-265e-48a4-b9be-c5dc6641b950" class="numbered-list" start="2"><li>看向职业部分，并点击“显示职业代理人”。这将会显示离你最近的职业代理人坐标。</li></ol><ol id="6548342b-a8be-415b-8ece-3de78cb0f8db" class="numbered-list" start="3"><li>在底部有一个名叫“设置目的地”的按钮，点击后将会自动设置自动导航路径前往职业代理人所在坐标。</li></ol><p id="133a5c1e-6392-4fa4-843a-b92e5c076a73" class="">你可以自行决定先做哪个任务（高级军事任务除外，该任务需要先完成军事任务）</p><h3 id="d6750b21-e178-43f2-bc5c-2c217d690d8b" class="">姐妹共济会史诗任务—血染之星</h3><figure id="08a62506-2b84-4adb-8ab4-9433ba1c7e48" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E8%A1%80%E6%9F%93%E4%B9%8B%E6%98%9F%2008a625062b844adb8ab49433ba1c7e48.html">血染之星</a></figure><p id="cbbf212d-248c-4b4f-b028-2a7f6f2e451a" class="">一旦你完成五个职业代理人任务，新伊甸的大门便彻底向你展开了。若你还想多做几个故事线任务，你可以去做姐妹共济会史诗任务“血染之星”（The Blood-Stained Stars）。这个史诗任务线包含50个环环相扣的任务，带你走进eve的背景故事中。</p><p id="2d0d49d3-20fa-441d-bd85-a3eaa343c028" class="">在你做任务的同时，你应专注于提升你的战斗技能。“血染之星”的大部分任务都可以靠护卫舰来完成，但在最后你应该考虑升级成驱逐舰甚至是巡洋舰。“血染之星”的大多数任务都很简单，但是个别任务对于新玩家来说较有挑战性。若你发现你需要帮助，你可以前往“中文”或“E-UNI”频道寻求帮助。但请留意，若是在本地频道寻求他人帮助或帮助他人，有些不怀好意的玩家会劫持你的任务目标，甚至攻击或击毁你。</p><h3 id="3cbae808-d16b-4762-902b-e8a16aca5647" class="">学习技能</h3><figure id="948fdf09-a657-4a2f-a094-99a8440e0daf" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E6%8A%80%E8%83%BD%E5%92%8C%E5%AD%A6%E4%B9%A0%20948fdf09a6574a2fa09499a8440e0daf.html">技能和学习</a></figure><p id="494908a8-11f6-44ff-a005-09eccdb49980" class="">不像其他大多数的MMORPG类游戏，在EVE中你的角色提升是通过学习技能，即使你下线，技能也会继续训练。因此，你应保持你的技能队列永远有技能在训练。你可以将你希望学习的技能依照先后次序排入队列中，前一个技能学习完毕后，后一个技能将自动开始学习。阿尔法克隆只能排到开始时间在24小时之内，而欧米伽克隆则并无该限制。技能拥有5个等级，其效果直线上升，但所需时间则指数级上升。所以通常来说，在最开始的几天内并不值得将技能挂到5级。反而应专注于你现在所进行的活动或者是你想尝试的船。这是因为你应在最开始的一段时间内找出你究竟在EVE里喜欢干什么，之后再着重于相对应的领域。技能是累积的，所以假定一个人物在拥有欧米伽克隆和无限时间的情况下，最终可以学习完eve中的每一个技能。所以在最开始玩的时候并不需要担心训练错技能这个问题。</p><p id="d09e0389-b29f-4a66-ba27-8b6a53b38353" class="">你在创建完人物之后，已经附带了一些初始技能。但若想训练额外技能，你首先必须吸收合适的技能书。你会从职业代理人那里获得几本技能书，但是其他的必须从市场上购买。EVE大学为其成员提供特定免费技能书。</p><p id="457951fa-dd3d-459e-9498-83b0bd7a0e94" class="">你可以通过安装植入体来加速你的技能训练，特别是基本属性增强植入体。这些植入体会为你的个别人物属性增加1到5点不等。当然有些较好的植入体很贵，但就算是新玩家也能负担的起一套+1植入体。EVE大学的成员可以以折扣价从EVE大学那里购买+3植入体。某些玩家军团也有可能免费提供一套+3植入体。</p><h3 id="ed834a4d-b1de-4e6a-84ce-8baea77775c7" class="">装配你的飞船</h3><figure id="99e5adbb-0447-4576-90f0-d597e07d8b11" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E8%A3%85%E9%85%8D%E5%87%86%E5%88%99%2099e5adbb0447457690f0d597e07d8b11.html">装配准则</a></figure><p id="4d7f5edf-8800-4523-a23b-33c4bc39d58d" class="">EVE中的舰船可以装备种类繁多的装备，这些装备为舰船提供额外能力或增强数值。研究哪些装备在哪艘船上可以效果最大化无疑是个无底洞。所以你应该循序渐进地学习，基本配船方针可以在如下页面找到。</p><figure id="0d5748e1-69ab-4f88-9afe-20192b3cd5b6" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E5%9F%BA%E6%9C%AC%E8%89%BE%E7%8E%9B%E8%88%B0%E8%88%B9%E5%92%8C%E6%8A%80%E8%83%BD%E6%80%BB%E8%A7%88%200d5748e169ab4f889afe20192b3cd5b6.html">基本艾玛舰船和技能总览</a></figure><figure id="b1aab78f-dc12-4ab9-ac83-748314df9ca8" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E5%9F%BA%E6%9C%AC%E5%8A%A0%E8%BE%BE%E9%87%8C%E8%88%B0%E8%88%B9%E5%92%8C%E6%8A%80%E8%83%BD%E6%80%BB%E8%A7%88%20b1aab78fdc124ab9ac83748314df9ca8.html">基本加达里舰船和技能总览</a></figure><figure id="338191c3-a455-4510-91ce-d5def02d04ba" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E5%9F%BA%E6%9C%AC%E7%9B%96%E4%BC%A6%E7%89%B9%E8%88%B0%E8%88%B9%E5%92%8C%E6%8A%80%E8%83%BD%E6%80%BB%E8%A7%88%20338191c3a455451091ced5def02d04ba.html">基本盖伦特舰船和技能总览</a></figure><figure id="067618b1-e233-4e02-91a5-49fa25b7a6c9" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E5%9F%BA%E6%9C%AC%E7%B1%B3%E7%8E%9B%E5%A1%94%E5%B0%94%E8%88%B0%E8%88%B9%E5%92%8C%E6%8A%80%E8%83%BD%E6%80%BB%E8%A7%88%20067618b1e2334e0291a549fa25b7a6c9.html">基本米玛塔尔舰船和技能总览</a></figure><figure id="1a7330a6-7003-4be5-b41b-b931f9dd3c55" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E5%9F%BA%E6%9C%ACORE%E8%88%B0%E8%88%B9%E5%92%8C%E6%8A%80%E8%83%BD%E6%80%BB%E8%A7%88%201a7330a670034be5b41bb931f9dd3c55.html">基本ORE舰船和技能总览</a></figure><p id="d8cceb01-d9de-4413-b61f-2d98e2e9ae3e" class="">另外这里也有一个有关于所有装备和改装件的了，以及它们是干什么的完整清单。</p><figure id="97294064-cc82-42c0-8b8b-e1089419b053" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E8%A3%85%E5%A4%87%E5%92%8C%E6%94%B9%E8%A3%85%E4%BB%B6%E6%B8%85%E5%8D%95%2097294064cc8242c08b8be1089419b053.html">装备和改装件清单</a></figure><h2 id="458eb139-a479-4726-916f-c948a168b04a" class="">加入一个公司/军团</h2><p id="9c652f89-352f-4fea-9394-a60543976700" class="">公司是eve版本的玩家组织，EVE本质上是一个社交游戏，虽然你可以选择单打独斗，但是很多eve的老玩家更多地以军团的气氛作为他们继续玩下去的其中一个原因之一。一个运作良好的军团可以为成员提供很多服务，例如说免费送萌新船，新手指导等。</p><p id="1d8e72fa-119b-4420-8870-caedd92f5f89" class="">EVE大学是一家专注于教新并引导新人感受eve的乐趣的军团，我们提供种类繁多的服务，例如免费技能书、打折+3植入体、导师，甚至是提供多种多样的实际操作机会的课程，而不是你现在正在阅读的这篇优秀的维基文章，我们欢迎来自所有玩家的申请。</p><p id="f3ce0ffc-ebce-4e90-82db-2f6edd7ea873" class="">不过EVE里仍然有很多其他军团，这些军团同样欢迎新玩家，你可以在如下渠道找到他们。</p><ol id="ad3ad7f9-abab-4d46-add8-5a26766f7695" class="numbered-list" start="1"><li>游戏内位于交易中心、职业代理人空间站或是星门附近的招新广告。</li></ol><ol id="5312016b-ed22-4fe2-8159-a40d3801b04c" class="numbered-list" start="2"><li>EVE欧服吧</li></ol><p id="1bad9a72-83c2-4799-9435-dc378ed831a6" class="">EVE是一个沙盒游戏，这意味着每位玩家都有权去找出他们在游戏里最喜欢做的事情。由于EVE的技能系统，使得上手某个特定活动是一件很轻松的事情，但是想要专精就得花点时间了。因此，作为一个新玩家，你应该多多涉猎不同的玩法，如果你找到某样你有兴趣的玩法，那么就深入研究一下，开始学习相应的技能，并开始尝试它。如果你很享受这种玩法，则继续深入学习下去，并积累游戏经验。如果你感觉无聊了，那么就换种玩法，重复一遍以上过程。</p><p id="398dfbe9-a70a-4d2b-8fdb-19ee78d6d329" class="">在你玩游戏的同时，你或许想要知道：</p><figure id="0e397086-d859-48a6-8dc7-930aa9e3d024" class="link-to-page"><a href="EVE%E5%85%A5%E9%97%A8%201de844f0eb2349c39fb02bbcdb1a1c83/%E9%92%88%E5%AF%B9%E6%96%B0%E7%8E%A9%E5%AE%B6%E7%9A%84%E5%B0%8F%E5%BB%BA%E8%AE%AE%200e397086d85948a68dc7930aa9e3d024.html">针对新玩家的小建议</a></figure><h3 id="bdf34dae-a005-481a-9e3c-f6f42566a52a" class="">寻求帮助</h3><p id="42209948-a049-420e-8043-a81d9f54c674" class="">EVE是一个复杂游戏，若是你害怕损失或被爆船，那么就要勇于提出问题；eve玩家社区对新玩家来说是非常友善且乐于助人的。获得直接帮助的最简单方法就是加入游戏内聊天频道。</p><h3 id="b2b76af3-f2be-45f0-973b-3621cc3ae655" class="">更深层次的知识</h3><p id="cd87503d-5e7c-4f3e-ad5b-8d79a7b798c2" class="">在一些能在聊天频道被解决的问题以外，还有数量庞大的由玩家社区列出的攻略库。EVE大学百科是其中一个针对新玩家的详尽资料库，但是仍然有其他类似的地方。善用你手头上的搜索引擎是一个不错的出发点，但请你留意，eve是一个不断发展的游戏，所以要查证某些信息是否过时。最后提一句，官方EVE Helping Centre是一个查找有关月卡服务、账号服务以及一些游玩过程中所遇到的基础问题的信息的好地方。</p></div></article></body></html>
